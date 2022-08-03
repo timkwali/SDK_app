@@ -19,12 +19,16 @@ class DataFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_data, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val btn: Button? = view?.findViewById(R.id.btn)
-//        btn?.setOnClickListener {
-//            showToastMessage()
-//        }
-        showToastMessage(requireContext(), "SDK test toast message")
+        btn?.setOnClickListener {
+            Toast.makeText(requireContext(), "SDK test toast message", Toast.LENGTH_LONG).show()
+        }
+//        showToastMessage(requireContext(), "SDK test toast message")
     }
 
     fun showToastMessage(context: Context, message: String) {
